@@ -1,16 +1,14 @@
-# This a basic docker-compose file to run an instance an instance of Mumble-Discord-Bridge
-# docker-compose -f ./docker-compose.yml up -d
-
+# Minimal docker-compose example for AudioStream Discord Bridge
 version: "3"
-   
+
 services:
-  mumble-discord-bridge:
-    image: stieneee/mumble-discord-bridge
+  audostream-discord-bridge:
+    image: stieneee/audostream-discord-bridge:latest
     restart: unless-stopped
+    ports:
+      - "8080:8080"
     environment:
-      - MUMBLE_ADDRESS=example.com"
-      - MUMBLE_USERNAME=discord-bridge
-      - MUMBLE_PASSWORD=password
-      - DISCORD_TOKEN=token
-      - DISCORD_GID=gid
-      - DISCORD_CID=cid
+      - DISCORD_TOKEN=your_bot_token
+      - DISCORD_GID=your_guild_id
+      - DISCORD_CID=your_voice_channel_id
+      - HTTP_BIND=0.0.0.0:8080

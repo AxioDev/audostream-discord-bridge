@@ -32,7 +32,7 @@ jobs:
         run: go install github.com/google/go-licenses@latest
 
       - name: go-license save
-        run: go-licenses save ./cmd/mumble-discord-bridge --force --save_path="./LICENSES" && zip -r -9 LICENSES.zip ./LICENSES
+        run: go-licenses save ./cmd/audostream-discord-bridge --force --save_path="./LICENSES" && zip -r -9 LICENSES.zip ./LICENSES
 
       - name: Run GoReleaser Build
         uses: goreleaser/goreleaser-action@v4
