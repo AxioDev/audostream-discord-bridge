@@ -1,6 +1,6 @@
 version: 2
 
-project_name: mumble-discord-bridge
+project_name: audostream-discord-bridge
 
 before:
   hooks:
@@ -12,7 +12,7 @@ builds:
       - linux
     goarch:
       - amd64
-    main: ./cmd/mumble-discord-bridge
+    main: ./cmd/audostream-discord-bridge
     env:
       - CGO_ENABLED=1
     ldflags: "-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser"
@@ -20,7 +20,7 @@ builds:
       - -tags=netgo
     hooks:
       post:
-        - cmd: go-licenses save ./cmd/mumble-discord-bridge --save_path="./dist/LICENSES"
+        - cmd: go-licenses save ./cmd/audostream-discord-bridge --save_path="./dist/LICENSES"
 
 checksum:
   name_template: "checksums.txt"
@@ -34,31 +34,31 @@ dockers:
     goarch: amd64
     dockerfile: Dockerfile
     image_templates:
-      - "stieneee/mumble-discord-bridge:latest"
-      - "stieneee/mumble-discord-bridge:{{ .Version }}"
-      - "ghcr.io/stieneee/mumble-discord-bridge:latest"
-      - "ghcr.io/stieneee/mumble-discord-bridge:{{ .Version }}"
+      - "stieneee/audostream-discord-bridge:latest"
+      - "stieneee/audostream-discord-bridge:{{ .Version }}"
+      - "ghcr.io/stieneee/audostream-discord-bridge:latest"
+      - "ghcr.io/stieneee/audostream-discord-bridge:{{ .Version }}"
     build_flag_templates:
       - "--platform=linux/amd64"
       - "--label=org.opencontainers.image.created={{.Date}}"
       - "--label=org.opencontainers.image.title={{.ProjectName}}"
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
-      - "--label=org.opencontainers.image.source=https://github.com/stieneee/mumble-discord-bridge"
+      - "--label=org.opencontainers.image.source=https://github.com/stieneee/audostream-discord-bridge"
 
 docker_manifests:
-  - name_template: stieneee/mumble-discord-bridge:latest
+  - name_template: stieneee/audostream-discord-bridge:latest
     image_templates:
-      - stieneee/mumble-discord-bridge:latest
-  - name_template: stieneee/mumble-discord-bridge:{{ .Version }}
+      - stieneee/audostream-discord-bridge:latest
+  - name_template: stieneee/audostream-discord-bridge:{{ .Version }}
     image_templates:
-      - stieneee/mumble-discord-bridge:{{ .Version }}
-  - name_template: ghcr.io/stieneee/mumble-discord-bridge:latest
+      - stieneee/audostream-discord-bridge:{{ .Version }}
+  - name_template: ghcr.io/stieneee/audostream-discord-bridge:latest
     image_templates:
-      - ghcr.io/stieneee/mumble-discord-bridge:latest
-  - name_template: ghcr.io/stieneee/mumble-discord-bridge:{{ .Version }}
+      - ghcr.io/stieneee/audostream-discord-bridge:latest
+  - name_template: ghcr.io/stieneee/audostream-discord-bridge:{{ .Version }}
     image_templates:
-      - ghcr.io/stieneee/mumble-discord-bridge:{{ .Version }}
+      - ghcr.io/stieneee/audostream-discord-bridge:{{ .Version }}
 
 changelog:
   sort: asc

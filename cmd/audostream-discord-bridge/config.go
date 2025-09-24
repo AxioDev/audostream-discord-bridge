@@ -9,8 +9,7 @@ import (
 	"strings"
 )
 
-//BridgeConfig holds configuration information set at startup
-//It should not change during runtime
+// Helper functions to retrieve configuration values from the environment.
 
 func lookupEnvOrString(key string, defaultVal string) string {
 	if val, ok := os.LookupEnv(key); ok {
